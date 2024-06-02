@@ -8,6 +8,10 @@
 import UIKit
 import Combine
 
+protocol ToDoItemsListViewControllerProtocol {
+    func selectToDoItem(_ viewController: UIViewController, item: ToDoItem)
+}
+
 class ToDoItemsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var toDoItemStore: ToDoItemStoreProtocol?
@@ -15,10 +19,12 @@ class ToDoItemsListViewController: UIViewController {
     private var token: AnyCancellable?
     let dateFormatter = DateFormatter()
     private var dataSource: UITableViewDiffableDataSource<Section, ToDoItem>?
+    var delegate: ToDoItemsListViewControllerProtocol?
     
     override func viewDidLoad() {
         tableView.register(ToDoItemCell.self, forCellReuseIdentifier: "ToDoItemCell")
         //tableView.dataSource = self
+        tableView.delegate = self
         dataSource = UITableViewDiffableDataSource<Section, ToDoItem>(tableView: tableView, cellProvider: { [weak self] tableView, indexPath, itemIdentifier in
             let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath) as! ToDoItemCell
             cell.titleLabel.text = itemIdentifier.title
@@ -37,14 +43,23 @@ class ToDoItemsListViewController: UIViewController {
     }
     
     enum Section {
-        case main
+        case todo
+        case done
     }
     
     private func update(with items: [ToDoItem]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, ToDoItem>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(items)
+        snapshot.appendSections([.todo, .done])
+        snapshot.appendItems(items.filter({ $0.done == false }), toSection: .todo)
+        snapshot.appendItems(items.filter({ $0.done == true }), toSection: .done)
         dataSource?.apply(snapshot)
+    }
+}
+
+extension ToDoItemsListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+        self.delegate?.selectToDoItem(self, item: item)
     }
 }
 

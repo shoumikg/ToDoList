@@ -79,4 +79,24 @@ final class ToDoItemsListViewControllerTests: XCTestCase {
         
         XCTAssertEqual(cell.dateLabel.text, sut.dateFormatter.string(from: date))
     }
+    
+    func test_numberOfSections_shouldReturnTwo() {
+        var doneItem = ToDoItem(title: "dummy 2")
+        doneItem.done = true
+        toDoItemStoreMock.itemPublisher.send([ToDoItem(title: "dummy 1"), doneItem])
+        let result = sut.tableView.numberOfSections
+        XCTAssertEqual(result, 2)
+    }
+    
+    func test_didSelectAt_shouldCallDelegate() throws {
+        let delegateMock = ToDoItemsListViewControllerProtocolMock()
+        sut.delegate = delegateMock
+        let toDoItem = ToDoItem(title: "dummy 1")
+        toDoItemStoreMock.itemPublisher.send([toDoItem])
+        let tableView = try XCTUnwrap(sut.tableView)
+        
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.delegate?.tableView?(tableView, didSelectRowAt: indexPath)
+        XCTAssertEqual(delegateMock.selectToDoItemReceivedArguments?.item, toDoItem)
+    }
 }
