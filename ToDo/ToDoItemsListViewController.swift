@@ -14,7 +14,7 @@ protocol ToDoItemsListViewControllerProtocol {
 
 class ToDoItemsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var toDoItemStore: ToDoItemStoreProtocol?
+    var toDoItemStore: ToDoItemStoreProtocol? = ToDoItemStore()
     private var items: [ToDoItem] = []
     private var token: AnyCancellable?
     let dateFormatter = DateFormatter()
