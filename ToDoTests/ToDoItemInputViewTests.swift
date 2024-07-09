@@ -15,15 +15,19 @@ final class ToDoItemInputViewTests: XCTestCase {
     
     var sut: ToDoItemInputView!
     var toDoItemData: ToDoItemData!
+    var apiClientMock: APIClientMock!
 
     override func setUpWithError() throws {
         toDoItemData = ToDoItemData()
-        sut = ToDoItemInputView(data: toDoItemData)
+        apiClientMock = APIClientMock()
+        sut = ToDoItemInputView(data: toDoItemData,
+                                apiClient: apiClientMock)
     }
 
     override func tearDownWithError() throws {
         sut = nil
         toDoItemData = nil
+        apiClientMock = nil
     }
     
     func test_titleInput_shouldSetValueInData() throws {
@@ -38,19 +42,84 @@ final class ToDoItemInputViewTests: XCTestCase {
     }
     
     func test_whenWithDate_shouldAllowDateInput() throws {
-        let exp = sut.on(\.didAppear) { view in
-            try view.find(ViewType.Toggle.self).tap()
-            
-            let expected = Date(timeIntervalSinceNow: 1_000_000)
-            try view
-                .find(ViewType.DatePicker.self)
-                .select(date: expected)
-            
-            let input = self.toDoItemData.date
-            XCTAssertEqual(input, expected)
-        }
+        let expected = Date()
+        try sut.inspect().find(ViewType.Toggle.self).tap()
+        try sut.inspect().find(ViewType.DatePicker.self).select(date: expected)
         
-        ViewHosting.host(view: sut)
-        wait(for: [exp], timeout: 0.1)
+        let input = toDoItemData.date
+        
+        XCTAssertEqual(input, expected)
+    }
+    
+    func test_shouldAllowDescriptionInput() throws {
+        let expected = "dummy deccription"
+        try sut.inspect().find(ViewType.TextField.self) { view in
+            let label = try view.labelView().text().string()
+            return label == "Description"
+        }
+        .setInput(expected)
+        
+        let input = toDoItemData.itemDescription
+        XCTAssertEqual(input, expected)
+    }
+    
+    func test_shouldAllowLocationInput() throws {
+        let expected = "dummy location"
+        try sut.inspect().find(ViewType.TextField.self) { view in
+            let label = try view.labelView().text().string()
+            return label == "Location name"
+        }
+        .setInput(expected)
+        
+        let input = toDoItemData.locationName
+        XCTAssertEqual(input, expected)
+    }
+    
+    func test_shouldAllowAddressInput() throws {
+        let expected = "dummy address"
+        try sut.inspect().find(ViewType.TextField.self) { view in
+            let label = try view.labelView().text().string()
+            return label == "Address"
+        }
+        .setInput(expected)
+        
+        let input = toDoItemData.addressString
+        XCTAssertEqual(input, expected)
+    }
+    
+    func test_shouldHaveASaveButton() throws {
+        XCTAssertNoThrow(try sut.inspect().find(ViewType.Button.self, where: { view in
+            let label = try view.labelView().text().string()
+            return label == "Save"
+        }))
+    }
+    
+    func test_saveButton_shouldFetchCoordinate() throws {
+        toDoItemData.title = "dummy title"
+        let expected = "dummy address"
+        toDoItemData.addressString = expected
+        try sut.inspect().find(ViewType.Button.self) { view in
+            let label = try view.labelView().text().string()
+            return label == "Save"
+        }
+        .tap()
+        
+        XCTAssertEqual(expected, apiClientMock.coordinateAddress)
+    }
+    
+    func test_save_whenAddressEmpty_shouldNotFetchCoordinate() throws {
+        toDoItemData.title = "dummy title"
+        try sut
+            .inspect()
+            .find(ViewType.Button.self,
+                  where: { view in
+                let label = try view
+                    .labelView()
+                    .text()
+                    .string()
+                return label == "Save"
+            })
+            .tap()
+        XCTAssertNil(apiClientMock.coordinateAddress)
     }
 }

@@ -14,6 +14,8 @@
 		924645BF2C3C36F3002DA123 /* ToDoItemInputViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924645BE2C3C36F3002DA123 /* ToDoItemInputViewTests.swift */; };
 		924645C12C3C375E002DA123 /* ToDoItemInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924645C02C3C375E002DA123 /* ToDoItemInputView.swift */; };
 		924645C32C3C3ABD002DA123 /* ToDoItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924645C22C3C3ABD002DA123 /* ToDoItemData.swift */; };
+		924645C52C3D1B48002DA123 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924645C42C3D1B48002DA123 /* APIClient.swift */; };
+		924645C72C3D1BB4002DA123 /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924645C62C3D1BB4002DA123 /* APIClientMock.swift */; };
 		92EA08FE2BE6170300585580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA08FD2BE6170300585580 /* AppDelegate.swift */; };
 		92EA09002BE6170300585580 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA08FF2BE6170300585580 /* SceneDelegate.swift */; };
 		92EA09022BE6170300585580 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA09012BE6170300585580 /* ViewController.swift */; };
@@ -61,6 +63,8 @@
 		924645BE2C3C36F3002DA123 /* ToDoItemInputViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemInputViewTests.swift; sourceTree = "<group>"; };
 		924645C02C3C375E002DA123 /* ToDoItemInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemInputView.swift; sourceTree = "<group>"; };
 		924645C22C3C3ABD002DA123 /* ToDoItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemData.swift; sourceTree = "<group>"; };
+		924645C42C3D1B48002DA123 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		924645C62C3D1BB4002DA123 /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
 		92EA08FA2BE6170300585580 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92EA08FD2BE6170300585580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92EA08FF2BE6170300585580 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				922E6C112C0CE02A00D027F8 /* ToDoItemDetailsViewController.swift */,
 				924645C02C3C375E002DA123 /* ToDoItemInputView.swift */,
 				924645C22C3C3ABD002DA123 /* ToDoItemData.swift */,
+				924645C42C3D1B48002DA123 /* APIClient.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				922E6C0D2C0C838600D027F8 /* ToDoItemsListViewControllerProtocolMock.swift */,
 				922E6C0F2C0CDF6700D027F8 /* ToDoItemDetailsViewControllerTests.swift */,
 				924645BE2C3C36F3002DA123 /* ToDoItemInputViewTests.swift */,
+				924645C62C3D1BB4002DA123 /* APIClientMock.swift */,
 			);
 			path = ToDoTests;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92EA093B2BE806CE00585580 /* Coordinate.swift in Sources */,
+				924645C52C3D1B48002DA123 /* APIClient.swift in Sources */,
 				92EA09022BE6170300585580 /* ViewController.swift in Sources */,
 				924645C12C3C375E002DA123 /* ToDoItemInputView.swift in Sources */,
 				92EA08FE2BE6170300585580 /* AppDelegate.swift in Sources */,
@@ -361,6 +368,7 @@
 				92EA09432BEA02C400585580 /* ToDoItemsListViewControllerTests.swift in Sources */,
 				92EA09472BEA0D4B00585580 /* ToDoItemStoreMock.swift in Sources */,
 				922E6C0E2C0C838600D027F8 /* ToDoItemsListViewControllerProtocolMock.swift in Sources */,
+				924645C72C3D1BB4002DA123 /* APIClientMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

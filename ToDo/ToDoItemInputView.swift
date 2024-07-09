@@ -9,23 +9,43 @@ import SwiftUI
 
 struct ToDoItemInputView: View {
     @ObservedObject var data: ToDoItemData
-    @State var withDate = false
-    var didAppear: ((Self) -> Void)?
+    let apiClient: APIClientProtocol
     
     var body: some View {
-        VStack {
-            TextField("Title", text: $data.title)
-            Toggle("Add Date", isOn: $withDate)
-            if withDate {
-                DatePicker("Date", selection: $data.date)
+        Form {
+            SwiftUI.Section {
+                TextField("Title", text: $data.title)
+                Toggle("Add Date", isOn: $data.withDate)
+                if data.withDate {
+                    DatePicker("Date", selection: $data.date)
+                }
+                TextField("Description",
+                          text: $data.itemDescription)
+            }
+            SwiftUI.Section {
+                TextField("Location name",
+                          text: $data.locationName)
+                TextField("Address", text: $data.addressString)
+            }
+            SwiftUI.Section {
+                Button(action: addToDoItem) {
+                    Text("Save")
+                }
             }
         }
-        .onAppear {
-            self.didAppear?(self)
+    }
+    
+    func addToDoItem() {
+        if !data.addressString.isEmpty {
+            apiClient.coordinate(for: data.addressString) { coordinate in
+                
+            }
         }
     }
 }
 
 #Preview {
-    ToDoItemInputView(data: ToDoItemData())
+    ToDoItemInputView(data: ToDoItemData(), 
+                      apiClient: APIClient())
+        .previewLayout(.sizeThatFits)
 }
