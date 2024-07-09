@@ -128,6 +128,84 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		924645CA2C3D6BF9002DA123 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92EA09302BE651A300585580 /* ToDoItem.swift */,
+				92EA09322BE6D1FD00585580 /* Location.swift */,
+				92EA09382BE78E3700585580 /* ToDoItemStore.swift */,
+				92EA093A2BE806CE00585580 /* Coordinate.swift */,
+				924645C22C3C3ABD002DA123 /* ToDoItemData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		924645CB2C3D6C1C002DA123 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				92EA09442BEA030900585580 /* ToDoItemsListViewController.swift */,
+				92EA09482BEA15FC00585580 /* ToDoItemCell.swift */,
+				922E6C112C0CE02A00D027F8 /* ToDoItemDetailsViewController.swift */,
+				924645C02C3C375E002DA123 /* ToDoItemInputView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		924645CC2C3D6C48002DA123 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				924645C42C3D1B48002DA123 /* APIClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		924645CD2C3D6C5E002DA123 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				92EA093C2BE8138400585580 /* FileManagerExtension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		924645CE2C3D6C7C002DA123 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				92EA09422BEA02C400585580 /* ToDoItemsListViewControllerTests.swift */,
+				922E6C0F2C0CDF6700D027F8 /* ToDoItemDetailsViewControllerTests.swift */,
+				924645BE2C3C36F3002DA123 /* ToDoItemInputViewTests.swift */,
+				92EA094A2BEA391200585580 /* ToDoItemCellTests.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		924645CF2C3D6C8C002DA123 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92EA092E2BE650B000585580 /* ToDoItemTests.swift */,
+				92EA09342BE7614000585580 /* LocationTests.swift */,
+				92EA09362BE7831100585580 /* ToDoItemStoreTests.swift */,
+				92EA09462BEA0D4B00585580 /* ToDoItemStoreMock.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		924645D02C3D6D39002DA123 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				922E6C0D2C0C838600D027F8 /* ToDoItemsListViewControllerProtocolMock.swift */,
+				924645C82C3D42DE002DA123 /* ToDoItemInputViewDelegateMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		924645D12C3D6D62002DA123 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				924645C62C3D1BB4002DA123 /* APIClientMock.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		92EA08F12BE6170300585580 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +231,10 @@
 		92EA08FC2BE6170300585580 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				924645CD2C3D6C5E002DA123 /* Utils */,
+				924645CC2C3D6C48002DA123 /* Networking */,
+				924645CB2C3D6C1C002DA123 /* Views */,
+				924645CA2C3D6BF9002DA123 /* Model */,
 				92EA08FD2BE6170300585580 /* AppDelegate.swift */,
 				92EA08FF2BE6170300585580 /* SceneDelegate.swift */,
 				92EA09012BE6170300585580 /* ViewController.swift */,
@@ -160,17 +242,6 @@
 				92EA09062BE6170500585580 /* Assets.xcassets */,
 				92EA09082BE6170500585580 /* LaunchScreen.storyboard */,
 				92EA090B2BE6170500585580 /* Info.plist */,
-				92EA09302BE651A300585580 /* ToDoItem.swift */,
-				92EA09322BE6D1FD00585580 /* Location.swift */,
-				92EA09382BE78E3700585580 /* ToDoItemStore.swift */,
-				92EA093A2BE806CE00585580 /* Coordinate.swift */,
-				92EA093C2BE8138400585580 /* FileManagerExtension.swift */,
-				92EA09442BEA030900585580 /* ToDoItemsListViewController.swift */,
-				92EA09482BEA15FC00585580 /* ToDoItemCell.swift */,
-				922E6C112C0CE02A00D027F8 /* ToDoItemDetailsViewController.swift */,
-				924645C02C3C375E002DA123 /* ToDoItemInputView.swift */,
-				924645C22C3C3ABD002DA123 /* ToDoItemData.swift */,
-				924645C42C3D1B48002DA123 /* APIClient.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -178,17 +249,10 @@
 		92EA09132BE6170500585580 /* ToDoTests */ = {
 			isa = PBXGroup;
 			children = (
-				92EA092E2BE650B000585580 /* ToDoItemTests.swift */,
-				92EA09342BE7614000585580 /* LocationTests.swift */,
-				92EA09362BE7831100585580 /* ToDoItemStoreTests.swift */,
-				92EA09422BEA02C400585580 /* ToDoItemsListViewControllerTests.swift */,
-				92EA09462BEA0D4B00585580 /* ToDoItemStoreMock.swift */,
-				92EA094A2BEA391200585580 /* ToDoItemCellTests.swift */,
-				922E6C0D2C0C838600D027F8 /* ToDoItemsListViewControllerProtocolMock.swift */,
-				922E6C0F2C0CDF6700D027F8 /* ToDoItemDetailsViewControllerTests.swift */,
-				924645BE2C3C36F3002DA123 /* ToDoItemInputViewTests.swift */,
-				924645C62C3D1BB4002DA123 /* APIClientMock.swift */,
-				924645C82C3D42DE002DA123 /* ToDoItemInputViewDelegateMock.swift */,
+				924645D12C3D6D62002DA123 /* Networking */,
+				924645D02C3D6D39002DA123 /* Mocks */,
+				924645CF2C3D6C8C002DA123 /* Model */,
+				924645CE2C3D6C7C002DA123 /* Views */,
 			);
 			path = ToDoTests;
 			sourceTree = "<group>";
