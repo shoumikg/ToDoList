@@ -17,6 +17,8 @@
 		924645C52C3D1B48002DA123 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924645C42C3D1B48002DA123 /* APIClient.swift */; };
 		924645C72C3D1BB4002DA123 /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924645C62C3D1BB4002DA123 /* APIClientMock.swift */; };
 		924645C92C3D42DE002DA123 /* ToDoItemInputViewDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924645C82C3D42DE002DA123 /* ToDoItemInputViewDelegateMock.swift */; };
+		924645D32C3D6E52002DA123 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924645D22C3D6E52002DA123 /* APIClientTests.swift */; };
+		924645D52C3D70D3002DA123 /* GeoCoderProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924645D42C3D70D3002DA123 /* GeoCoderProtocolMock.swift */; };
 		92EA08FE2BE6170300585580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA08FD2BE6170300585580 /* AppDelegate.swift */; };
 		92EA09002BE6170300585580 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA08FF2BE6170300585580 /* SceneDelegate.swift */; };
 		92EA09022BE6170300585580 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA09012BE6170300585580 /* ViewController.swift */; };
@@ -67,6 +69,8 @@
 		924645C42C3D1B48002DA123 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		924645C62C3D1BB4002DA123 /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
 		924645C82C3D42DE002DA123 /* ToDoItemInputViewDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemInputViewDelegateMock.swift; sourceTree = "<group>"; };
+		924645D22C3D6E52002DA123 /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
+		924645D42C3D70D3002DA123 /* GeoCoderProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoderProtocolMock.swift; sourceTree = "<group>"; };
 		92EA08FA2BE6170300585580 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92EA08FD2BE6170300585580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92EA08FF2BE6170300585580 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 			children = (
 				922E6C0D2C0C838600D027F8 /* ToDoItemsListViewControllerProtocolMock.swift */,
 				924645C82C3D42DE002DA123 /* ToDoItemInputViewDelegateMock.swift */,
+				924645D42C3D70D3002DA123 /* GeoCoderProtocolMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				924645C62C3D1BB4002DA123 /* APIClientMock.swift */,
+				924645D22C3D6E52002DA123 /* APIClientTests.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -429,11 +435,13 @@
 				924645BF2C3C36F3002DA123 /* ToDoItemInputViewTests.swift in Sources */,
 				922E6C102C0CDF6700D027F8 /* ToDoItemDetailsViewControllerTests.swift in Sources */,
 				92EA094B2BEA391200585580 /* ToDoItemCellTests.swift in Sources */,
+				924645D32C3D6E52002DA123 /* APIClientTests.swift in Sources */,
 				924645C92C3D42DE002DA123 /* ToDoItemInputViewDelegateMock.swift in Sources */,
 				92EA09372BE7831100585580 /* ToDoItemStoreTests.swift in Sources */,
 				92EA09352BE7614000585580 /* LocationTests.swift in Sources */,
 				92EA092F2BE650B000585580 /* ToDoItemTests.swift in Sources */,
 				92EA09432BEA02C400585580 /* ToDoItemsListViewControllerTests.swift in Sources */,
+				924645D52C3D70D3002DA123 /* GeoCoderProtocolMock.swift in Sources */,
 				92EA09472BEA0D4B00585580 /* ToDoItemStoreMock.swift in Sources */,
 				922E6C0E2C0C838600D027F8 /* ToDoItemsListViewControllerProtocolMock.swift in Sources */,
 				924645C72C3D1BB4002DA123 /* APIClientMock.swift in Sources */,
